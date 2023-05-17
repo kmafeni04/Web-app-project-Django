@@ -1,0 +1,33 @@
+{% extends 'web_app_hotel_app/baseloggedout.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/guestsignup.css' %}" />
+{% endblock %} 
+{% block topbar %} {% endblock %}
+
+{% block content %}
+
+    <div class="signup-form">
+      <h2>Create an Account</h2>
+      <form action="/home/">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" required />
+
+        <button type="submit">Sign Up</button>
+      </form>
+      <br />
+      <span
+        >Already have an Account?
+        <a href="/guestlogin/">Log in</a></span
+      >
+    </div>
+    {% endblock  %}

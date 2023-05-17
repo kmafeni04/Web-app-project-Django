@@ -1,0 +1,17 @@
+{% extends 'web_app_hotel_app/base.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %} 
+
+{% block content %}
+  <div class="hero-image">
+    <div class="hero-text">
+      <h2>Welcome to our Hotel</h2>
+      <p>Book your perfect stay with us today!</p>
+      <a href="/rooms/">Book Now</a>
+    </div>
+  </div>
+{% endblock %}

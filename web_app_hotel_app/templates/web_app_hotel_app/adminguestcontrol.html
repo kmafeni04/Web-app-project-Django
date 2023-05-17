@@ -1,0 +1,67 @@
+{% extends 'web_app_hotel_app/baseadmin.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/adminguestcontrol.css' %}" />
+{% endblock %} 
+
+{% block content %}
+
+
+    <div class="admin-guest-accounts-page">
+      <h2>Manage Guest Accounts</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Guest ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>johndoe@example.com</td>
+            <td>1234567890</td>
+            <td>
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>janesmith@example.com</td>
+            <td>0987654321</td>
+            <td>
+              <button>Edit</button>
+              <button>Delete</button>
+            </td>
+          </tr>
+          <!-- Add more rows for guest accounts -->
+        </tbody>
+      </table>
+      <form>
+        <h3>Create New Guest Account</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" required />
+
+        <button type="submit">Create Account</button>
+      </form>
+    </div>
+
+{% endblock %}

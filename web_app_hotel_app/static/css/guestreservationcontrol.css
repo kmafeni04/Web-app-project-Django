@@ -1,0 +1,39 @@
+.guest-reservations-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.guest-reservations-page h2 {
+  margin-bottom: 20px;
+}
+
+.guest-reservations-page table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.guest-reservations-page th,
+.guest-reservations-page td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.guest-reservations-page th {
+  background-color: #f2f2f2;
+}
+
+.guest-reservations-page form {
+  margin-top: 20px;
+}
+
+.guest-reservations-page form label,
+.guest-reservations-page form input {
+  display: block;
+  margin-bottom: 10px;
+}
+

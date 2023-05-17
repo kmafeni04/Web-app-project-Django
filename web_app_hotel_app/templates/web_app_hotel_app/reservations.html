@@ -1,0 +1,38 @@
+{% extends 'web_app_hotel_app/base.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/reservations.css' %}" />
+{% endblock %} 
+
+{% block content %}
+
+    <div class="reservation-form">
+      <h2>Make a Reservation</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="room-type">Room Type:</label>
+        <select id="room-type" name="room-type">
+          <option value="deluxe">Deluxe Room</option>
+          <option value="standard">Standard Room</option>
+          <option value="suite">Suite</option>
+          <option value="family">Family Room</option>
+        </select>
+
+        <label for="check-in">Check-In Date:</label>
+        <input type="date" id="check-in" name="check-in" required />
+
+        <label for="check-out">Check-Out Date:</label>
+        <input type="date" id="check-out" name="check-out" required />
+
+        <button type="submit">Submit Reservation</button>
+      </form>
+    </div>
+
+{% endblock %}
