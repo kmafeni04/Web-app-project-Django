@@ -9,25 +9,23 @@
 
     <div class="signup-form">
       <h2>Create an Account</h2>
-      <form action="/home/">
-        <label for="name">Name:</label>
-        <input type="text" id="name" required />
+      {% if form.errors %}
+      <br />
+      <p style= "color: red;">There was an error in your form</p>
+      <br />
+      {% endif %}
+      <form method="POST" action="">
+        {% csrf_token %}
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" required />
-
-        <label for="confirm-password">Confirm Password:</label>
-        <input type="password" id="confirm-password" required />
+        {{ form.as_p }}
+        <br /><br />
 
         <button type="submit">Sign Up</button>
       </form>
       <br />
-      <span
-        >Already have an Account?
-        <a href="/guestlogin/">Log in</a></span
-      >
+      <span>
+        Already have an Account?
+        <a href="/guestlogin/">Log in</a>
+      </span>
     </div>
     {% endblock  %}

@@ -28,7 +28,9 @@
         <a href="/roomsadmin/">Rooms</a>
         <a href="/reservationsadmin/">Reservations</a>
         <a href="/contactadmin/">Contact</a>
-        <a href="/loginselection/">Log out</a>
+        {% if user.is_authenticated %}
+        <a href="/logout_user/">Log out</a>
+        {%endif%} 
       </nav>
       {% endblock %}
       {% block content %}

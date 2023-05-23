@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     #general logged out links
+    path('logout_user/', views.logout_user, name="logout_user"),
     path('', views.index, name="index"),
     path('baseloggedout/', views.baseloggedout, name="baseloggedout"),
     path('loginselection/', views.loginselection, name="loginselection"),

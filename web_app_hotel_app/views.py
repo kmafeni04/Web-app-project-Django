@@ -1,9 +1,23 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+
+from .models import Reservations
+from .forms import SignUpForm
+from .forms import ReservationsForm
+
 
 
 #general logged out links
-def index(request):
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("You were logged out"))
+    return redirect('index')
+
+def index(request):    
     return render(request, 'web_app_hotel_app/index.html')
 
 def baseloggedout(request):
@@ -13,10 +27,39 @@ def loginselection(request):
     return render(request, 'web_app_hotel_app/loginselection.html')
 
 def signup(request):
-    return render(request, 'web_app_hotel_app/guestsignup.html')
+    if request.method == "POST":
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, ("Registration Succesful"))
+            return redirect('home')
+    else:
+        form = SignUpForm()
+
+    return render(request, 'web_app_hotel_app/guestsignup.html', {
+        'form':form,
+    })
 
 def guestlogin(request):
-    return render(request, 'web_app_hotel_app/guestlogin.html')
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home') 
+
+        else:
+            messages.success(request, ("Incorrect Username or Password"))
+            return redirect('guestlogin')
+
+    else:
+        return render(request, 'web_app_hotel_app/guestlogin.html')
 
 def roomssignedout(request):
     return render(request, 'web_app_hotel_app/roomssignedout.html')
@@ -33,7 +76,20 @@ def rooms(request):
     return render(request, 'web_app_hotel_app/rooms.html')
 
 def reservations(request):
-    return render(request, 'web_app_hotel_app/reservations.html')
+    submitted = False
+    if request.method == "POST":
+        form = ReservationsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/reservations?submitted=True')
+    else:
+        form = ReservationsForm
+        if 'submitted' in request.GET:
+            submitted = True
+
+    made_reservations = Reservations.objects.all()
+
+    return render(request, 'web_app_hotel_app/reservations.html', {'form':form, 'submitted':submitted, 'made_reservations':made_reservations})
 
 def services(request):
     return render(request, 'web_app_hotel_app/services.html')
@@ -46,7 +102,21 @@ def baseadmin(request):
     return render(request, 'web_app_hotel_app/baseadmin.html')
 
 def adminlogin(request):
-    return render(request, 'web_app_hotel_app/adminlogin.html')
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('admincontrol') 
+
+        else:
+            messages.success(request, ("Incorrect Username or Password"))
+            return redirect('adminlogin')
+
+    else:
+        return render(request, 'web_app_hotel_app/adminlogin.html')
 
 def admincontrol(request):
     return render(request, 'web_app_hotel_app/admincontrol.html')
@@ -62,6 +132,3 @@ def reservationsadmin(request):
 
 def contactadmin(request):
     return render(request, 'web_app_hotel_app/contactadmin.html')
-
-
-
