@@ -1,0 +1,41 @@
+{% extends 'web_app_hotel_app/baseadmin.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/adminlogin.css' %}" />
+{% endblock %} 
+{% block topbar %} {% endblock %}
+
+{% block admincontrollink %} 
+<h1>
+  <a style="text-decoration: none" href="#"
+    >Hotel Management System</a
+  >
+</h1>
+{% endblock  %}
+
+{% block content %}
+
+    <div class="admin-login-form">
+      <h2>Admin Login</h2>
+      {% if messages %}
+        {% for message  in messages %}
+        <div style="color: red;">
+          {{message}}
+        </div>
+        {% endfor %}
+      {% endif %}
+      <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+.admin-guest-accounts-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.admin-guest-accounts-page h2 {
+  margin-bottom: 20px;
+}
+
+.admin-guest-accounts-page table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-guest-accounts-page th,
+.admin-guest-accounts-page td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-guest-accounts-page th {
+  background-color: #f2f2f2;
+}
+
+.admin-guest-accounts-page form {
+  margin-top: 20px;
+}
+
+.admin-guest-accounts-page form label,
+.admin-guest-accounts-page form input {
+  display: block;
+  margin-bottom: 10px;
+}
+

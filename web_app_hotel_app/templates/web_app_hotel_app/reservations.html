@@ -1,0 +1,59 @@
+{% extends 'web_app_hotel_app/base.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/reservations.css' %}" />
+{% endblock %} 
+
+{% block content %}
+
+    <div class="reservation-form">
+      <h2>Make a Reservation</h2>
+      <br />
+      {% if submitted %}
+      <p style="color: rgb(13, 255, 0);">Your reservation was made</p>
+      {% else %}
+      <p style="color: red;">There were errors with your reservation</p>
+      {% endif %}
+      <br/><br/>
+      <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit">Submit Reservation</button>
+      </form>
+    </div>
+
+    <div class="made-reservations" style="
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    ">
+      <h2> Your Reservations </h2>
+      <br />
+      <div class="reservations-section">
+        <div class="made-reservation">
+          <ul style="list-style: none;">
+          {% for Reservations in made_reservations  %}
+            <li> ID: {{ Reservations.id }}</li>
+            <li> Full name: {{ Reservations.full_name }}</li>
+            <li> Email: {{ Reservations.email }}</li>         
+            <li> Room Type: {{ Reservations.room_type }}</li>
+            <li> Check in date: {{ Reservations.check_in_date }}</li>
+            <li> Check out date: {{ Reservations.check_out_date }}</li>
+            <br />
+            <button>Edit</button>
+            <button>Cancel</button>
+            <br /><br />
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

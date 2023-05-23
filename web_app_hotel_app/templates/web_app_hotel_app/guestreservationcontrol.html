@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Management System - Guest Reservations</title>
+    <link rel="stylesheet" href="/CSS/all.css" />
+    <link rel="stylesheet" href="/CSS/guestreservationcontrol.css" />
+  </head>
+  <body>
+    <header>
+      <h1>
+        <a style="text-decoration: none" href="/HTML/admincontrol.html"
+          >Hotel Management System</a
+        >
+      </h1>
+    </header>
+
+    <nav>
+      <a href="/HTML/home.html">Home</a>
+      <a href="/HTML/rooms.html">Rooms</a>
+      <a href="/HTML/reservations.html">Reservations</a>
+      <a href="/HTML/services.html">Services</a>
+      <a href="/HTML/contactguest.html">Contact</a>
+      <a href="/HTML/loginselection.html">Log out</a>
+    </nav>
+
+    <div class="guest-reservations-page">
+      <h2>My Reservations</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Reservation ID</th>
+            <th>Room Type</th>
+            <th>Check-in Date</th>
+            <th>Check-out Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Standard Room</td>
+            <td>2023-05-20</td>
+
+            <td>2023-05-25</td>
+            <td>Confirmed</td>
+            <td>
+              <button>Edit</button>
+              <button>Cancel</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Deluxe Room</td>
+            <td>2023-06-10</td>
+            <td>2023-06-15</td>
+            <td>Pending</td>
+            <td>
+              <button>Edit</button>
+              <button>Cancel</button>
+            </td>
+          </tr>
+          <!-- Add more rows for guest reservations -->
+        </tbody>
+      </table>
+    </div>
+    <footer>
+      <p>&copy; 2023 Hotel Management System. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

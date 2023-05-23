@@ -1,0 +1,21 @@
+{% extends 'web_app_hotel_app/baseloggedout.html' %} 
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/loginselection.css' %}" />
+{% endblock %} 
+{% block topbar %} {% endblock %}
+
+{% block content %}
+
+    <div class="login-selection-page">
+      <h2>Login Selection</h2>
+
+      <button onclick="location.href='/adminlogin/'">
+        Admin Login
+      </button>
+      <button onclick="location.href='/guestlogin/'">
+        Guest Login
+      </button>
+    </div>
+
+{% endblock %}

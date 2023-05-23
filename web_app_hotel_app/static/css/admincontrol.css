@@ -1,0 +1,16 @@
+.admin-control-page {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.admin-control-page h2 {
+  margin-bottom: 20px;
+}
+
+.admin-control-page p {
+  margin-bottom: 10px;
+}

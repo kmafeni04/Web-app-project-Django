@@ -1,0 +1,43 @@
+{% extends 'web_app_hotel_app/base.html' %} 
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}" />
+{% endblock %} 
+
+{% block content %}
+
+    <div class="guest-services-page">
+      <h2>Request Extra Services</h2>
+
+      <form action="reservations.html">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" required />
+
+        <label for="service-type">Service Type:</label>
+        <select id="service-type">
+          <option value="airport-pickup">Airport Pickup</option>
+          <option value="airport-dropoff">Airport Drop-off</option>
+          <!-- Add more service options -->
+        </select>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required />
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required />
+        <label for="service-details">Service Details:</label>
+        <textarea id="service-details" rows="4" required></textarea>
+
+        <button type="submit">Request Service</button>
+      </form>
+    </div>
+
+{% endblock %}
